@@ -12,6 +12,8 @@ A clean, performance-focused React + Tailwind CSS website built with modern best
 - 📱 Fully responsive layout
 
 ## 🧱 Project Structure
+
+````
 src/
 ├─ components/
 │ ├─ layout/
@@ -29,6 +31,7 @@ src/
 │ └─ TailwindLogo.jsx
 ├─ App.jsx
 └─ main.jsx
+````
 
 
 ## 🎯 Goals
