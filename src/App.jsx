@@ -24,11 +24,10 @@ function App() {
       <header
         className="text-black dark:text-white bg-white dark:bg-black"
       >
-         
         <TopNavBar />
       </header>
 
-      <main className="text-black dark:text-white bg-white dark:bg-black">
+      <main className="pt-16 text-black dark:text-white bg-white dark:bg-black">
         <HomePage />
       </main>
 

@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer id="footer" className="flex flex-col justify-center">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-10 w-full">
-                <div className="col-span-2 lg:col-span-3 backdrop-blur-sm p-10 flex flex-col gap-4 bg-zinc-200/20">
+                <div className="col-span-2 lg:col-span-3 p-10 flex flex-col gap-4 bg-zinc-200/20 backdrop-blur-sm ">
                     <div className="flex items-center gap-2 font-medium text-xl">
                         <h3 className="flex items-center"><ReactLogo className="w-9 h-9" />React&nbsp;+&nbsp;<TailwindLogo className="w-9 h-9" />Tailwind CSS</h3>
                         
