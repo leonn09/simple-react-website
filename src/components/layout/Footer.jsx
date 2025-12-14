@@ -1,9 +1,9 @@
 import ReactLogo from "../ui/ReactLogo";
 import TailwindLogo from "../ui/TailwindLogo";
 
-const Footer = () => {
+const Footer = ({theme}) => {
     return (
-        <footer id="footer" className="flex flex-col justify-center">
+        <footer id="footer" className={`flex flex-col justify-center ${theme}`}>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-10 w-full">
                 <div
                     className="
@@ -192,7 +192,7 @@ const Footer = () => {
                             </g>
                         </svg>
                     </a>
-                    <a href="#" arial-label="Follow us on Instagram">
+                    <a href="#" aria-label="Follow us on Instagram">
                         <svg
                             aria-hidden="true"
                             width="25px"

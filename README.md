@@ -1,16 +1,66 @@
-# React + Vite
+# Simple React Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean, performance-focused React + Tailwind CSS website built with modern best practices, accessibility, and scalability in mind.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚛️ Component-based React architecture
+- 🎨 Tailwind CSS for fast and responsive styling
+- 🌗 Light / Dark mode with system preference support
+- ♿ Accessibility-focused markup (semantic HTML, ARIA labels)
+- 🚀 Optimized for performance (Lighthouse 99–100)
+- 📱 Fully responsive layout
 
-## React Compiler
+## 🧱 Project Structure
+src/
+├─ components/
+│ ├─ layout/
+│ │ ├─ TopNavBar.jsx
+│ │ └─ Footer.jsx
+│ ├─ pages/
+│ │ └─ HomePage.jsx
+│ ├─ sections/
+│ │ ├─ HeroSection.jsx
+│ │ ├─ AboutUs.jsx
+│ │ └─ Features.jsx
+│ └─ ui/
+│ ├─ Card.jsx
+│ ├─ ReactLogo.jsx
+│ └─ TailwindLogo.jsx
+├─ App.jsx
+└─ main.jsx
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 🎯 Goals
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project serves as:
+- A learning playground for modern React development
+- A clean starter template for future projects
+- A reference for best practices in layout, accessibility, and performance
+
+## 🛠️ Tech Stack
+
+- **React**
+- **Tailwind CSS**
+- **Vite**
+- **Git & GitHub Pages**
+
+## 📦 Scripts
+
+```bash
+npm install        # Install dependencies
+npm run dev        # Start development server
+npm run build      # Build for production
+npm run deploy     # Deploy to GitHub Pages
+
+🌍 Deployment
+
+The project is deployed using GitHub Pages.
+
+🧠 Notes
+
+Built incrementally with clean commit history
+
+Focused on fundamentals before enhancements
+
+Designed to scale with additional sections and features

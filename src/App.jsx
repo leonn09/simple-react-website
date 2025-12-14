@@ -19,23 +19,21 @@ function App() {
     }
   }, []);
 
+  const theme = "text-black dark:text-white bg-white dark:bg-black";
+
   return (
     <>
       <header
-        className="text-black dark:text-white bg-white dark:bg-black"
+        className={theme}
       >
         <TopNavBar />
       </header>
 
-      <main className="pt-16 text-black dark:text-white bg-white dark:bg-black">
+      <main className={`pt-16 ${theme}`}>
         <HomePage />
       </main>
 
-      <footer
-        className="text-black dark:text-white bg-white dark:bg-black"  
-      >
-        <Footer />
-      </footer>
+      <Footer theme={theme}/>
     </>
   )
 }
