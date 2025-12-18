@@ -55,12 +55,13 @@ npm install        # Install dependencies
 npm run dev        # Start development server
 npm run build      # Build for production
 npm run deploy     # Deploy to GitHub Pages
+```
 
-🌍 Deployment
+## 🌍 Deployment
 
 The project is deployed using GitHub Pages.
 
-🧠 Notes
+## 🧠 Notes
 
 Built incrementally with clean commit history
 
