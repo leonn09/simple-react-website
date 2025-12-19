@@ -124,19 +124,22 @@ const TopNavBar = () => {
         </nav>
 
         {/* Mobile dropdown menu */}
-        {isMenuOpen && (
         <div
             id="mobile-menu"
             className={`
-            md:hidden fixed top-10 left-1/2 -translate-x-1/2 z-40
-            ${isScrolled ? "w-[80%]" : "w-full"}
-            pt-10 pb-2
-            flex flex-col items-center
-            font-bold
-            bg-white/90 dark:bg-black/90
-            ${isScrolled ? "border-2 rounded-2xl backdrop-blur-sm" : ""}
-            transition-all duration-200 ease-out
-            origin-top
+                md:hidden fixed top-10 left-1/2 -translate-x-1/2 z-40
+                ${isScrolled ? "w-[80%]" : "w-full"}
+                flex flex-col items-center
+                font-bold
+                bg-white/90 dark:bg-black/90
+                ${isScrolled ? "border-2 rounded-2xl backdrop-blur-sm" : ""}
+                transition-all duration-300 ease-out
+                origin-top
+                ${
+                isMenuOpen
+                    ? "opacity-100 pt-10 pb-2 ointer-events-auto"
+                    : "opacity-0 pt-0 pb-0 pointer-events-none"
+                }
             `}
         >
             <a onClick={() => setIsMenuOpen(false)} href="#hero" className="py-2">Home</a>
@@ -144,7 +147,7 @@ const TopNavBar = () => {
             <a onClick={() => setIsMenuOpen(false)} href="#features" className="py-2">Features</a>
             <a onClick={() => setIsMenuOpen(false)} href="#footer" className="py-2">Contact</a>
         </div>
-        )}
+
     </>
   );
 };
