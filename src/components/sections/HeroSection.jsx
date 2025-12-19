@@ -34,6 +34,23 @@ const HeroSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const slide = HERO_SLIDES[activeIndex];
 
+  // Initialize auto-play based on user's motion preference
+  const [isAutoPlayEnabled, setIsAutoPlayEnabled] = useState(() => {
+    return !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  });
+
+  // Listen for changes in motion preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const handleChange = () => {
+      setIsAutoPlayEnabled(!mediaQuery.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
   // Enables keyboard navigation for hero slides
   // Left arrow → previous slide
   // Right arrow → next slide
@@ -56,6 +73,21 @@ const HeroSection = () => {
     return () => window.removeEventListener("keydown", handleKey);
   }, []);
 
+  // Auto-play slides when enabled
+  // Advances every 6 seconds
+  useEffect(() => {
+    if (!isAutoPlayEnabled) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex(i =>
+        i === HERO_SLIDES.length - 1 ? 0 : i + 1
+      );
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlayEnabled]);
+
+
   return (
     // Primary introductory section of the page
     <section
@@ -67,6 +99,8 @@ const HeroSection = () => {
         px-6
         overflow-hidden
       "
+      onMouseEnter={() => setIsAutoPlayEnabled(false)}
+      onFocus={() => setIsAutoPlayEnabled(false)}
     >
       
       {/* Decorative background only, hidden from screen readers */}
@@ -148,11 +182,12 @@ const HeroSection = () => {
       ">
         <button
           aria-label="Previous slide"
-          onClick={() =>
+          onClick={() => {
+            setIsAutoPlayEnabled(false);
             setActiveIndex(i =>
               i === 0 ? HERO_SLIDES.length - 1 : i - 1
-            )
-          }
+            );
+          }}
           className="
             pointer-events-auto
             h-10 w-10
@@ -168,11 +203,12 @@ const HeroSection = () => {
 
         <button
           aria-label="Next slide"
-          onClick={() =>
+          onClick={() => {
+            setIsAutoPlayEnabled(false);
             setActiveIndex(i =>
               i === HERO_SLIDES.length - 1 ? 0 : i + 1
-            )
-          }
+            );
+          }}
           className="
             pointer-events-auto
             h-10 w-10
@@ -187,13 +223,28 @@ const HeroSection = () => {
         </button>
       </div>
 
+      {/* 
+        Slide indicators (pagination dots)
+
+        Each indicator is a real <button> for accessibility and keyboard support.
+        The button itself is sized to meet minimum touch target requirements (44x44px),
+        while the visible dot remains small for visual design.
+
+        This ensures:
+        - Good mobile usability
+        - Lighthouse accessibility compliance
+        - No visual layout compromise
+      */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
         {HERO_SLIDES.map((_, index) => (
           <button
             key={index}
             aria-current={index === activeIndex ? "true" : undefined}
             aria-label={`Go to slide ${index + 1}`}
-            onClick={() => setActiveIndex(index)}
+            onClick={() => {
+              setIsAutoPlayEnabled(false);
+              setActiveIndex(index);
+            }}
             className="
               h-11 w-11
               flex items-center justify-center

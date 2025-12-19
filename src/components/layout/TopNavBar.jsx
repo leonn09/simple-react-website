@@ -56,7 +56,7 @@ const TopNavBar = () => {
             transition-all duration-200
             ${
             isScrolled
-                ? "mt-3 w-[95%] border-2 rounded-full bg-white dark:bg-black"
+                ? "mt-3 w-[95%] border-2 rounded-full bg-white dark:bg-black md:bg-white/50 md:dark:bg-black/50 md:backdrop-blur-sm shadow-xl"
                 : "w-full bg-white dark:bg-black"
             }
         `}
