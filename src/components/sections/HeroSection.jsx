@@ -194,16 +194,23 @@ const HeroSection = () => {
             aria-current={index === activeIndex ? "true" : undefined}
             aria-label={`Go to slide ${index + 1}`}
             onClick={() => setActiveIndex(index)}
-            className={`
-              h-2 w-2 rounded-full
-              transition
-              ${index === activeIndex
-                ? "bg-black dark:bg-white"
-                : "bg-black/30 dark:bg-white/30"}
-            `}
-          />
+            className="
+              h-11 w-11
+              flex items-center justify-center
+            "
+          >
+            <span
+              className={`
+                h-2 w-2 rounded-full transition
+                ${index === activeIndex
+                  ? "bg-black dark:bg-white"
+                  : "bg-black/30 dark:bg-white/30"}
+              `}
+            />
+          </button>
         ))}
       </div>
+
 
 
 
