@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Slide content is data-driven to avoid hardcoding DOM
 // Makes the Hero easy to extend or animate later
@@ -33,6 +33,10 @@ const HeroSection = () => {
   
   const [activeIndex, setActiveIndex] = useState(0);
   const slide = HERO_SLIDES[activeIndex];
+
+  // Tracks whether the user explicitly interacted
+  // Used to prevent auto-play from resuming unexpectedly
+  const hasUserInteracted = useRef(false);
 
   // Initialize auto-play based on user's motion preference
   const [isAutoPlayEnabled, setIsAutoPlayEnabled] = useState(() => {
@@ -101,6 +105,16 @@ const HeroSection = () => {
       "
       onMouseEnter={() => setIsAutoPlayEnabled(false)}
       onFocus={() => setIsAutoPlayEnabled(false)}
+      onMouseLeave={() => {
+        if (!hasUserInteracted.current) {
+          setIsAutoPlayEnabled(true);
+        }
+      }}
+      onBlur={() => {
+        if (!hasUserInteracted.current) {
+          setIsAutoPlayEnabled(true);
+        }
+      }}
     >
       
       {/* Decorative background only, hidden from screen readers */}
@@ -183,6 +197,7 @@ const HeroSection = () => {
         <button
           aria-label="Previous slide"
           onClick={() => {
+            hasUserInteracted.current = true;
             setIsAutoPlayEnabled(false);
             setActiveIndex(i =>
               i === 0 ? HERO_SLIDES.length - 1 : i - 1
@@ -204,6 +219,7 @@ const HeroSection = () => {
         <button
           aria-label="Next slide"
           onClick={() => {
+            hasUserInteracted.current = true;
             setIsAutoPlayEnabled(false);
             setActiveIndex(i =>
               i === HERO_SLIDES.length - 1 ? 0 : i + 1
@@ -242,6 +258,7 @@ const HeroSection = () => {
             aria-current={index === activeIndex ? "true" : undefined}
             aria-label={`Go to slide ${index + 1}`}
             onClick={() => {
+              hasUserInteracted.current = true;
               setIsAutoPlayEnabled(false);
               setActiveIndex(index);
             }}
