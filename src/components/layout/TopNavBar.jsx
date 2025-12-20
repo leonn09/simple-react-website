@@ -56,7 +56,7 @@ const TopNavBar = () => {
             transition-all duration-200
             ${
             isScrolled
-                ? "mt-3 w-[95%] border-2 rounded-full bg-white dark:bg-black md:bg-white/50 md:dark:bg-black/50 md:backdrop-blur-sm shadow-xl"
+                ? "mt-3 w-[95%] border-2 rounded-full bg-white dark:bg-black md:bg-white/50 md:dark:bg-black/50 md:backdrop-blur-lg shadow-xl"
                 : "w-full bg-white dark:bg-black"
             }
         `}
@@ -132,7 +132,7 @@ const TopNavBar = () => {
                 flex flex-col items-center
                 font-bold
                 bg-white/70 dark:bg-black/70
-                ${isScrolled ? "border-2 rounded-2xl backdrop-blur-md" : ""}
+                ${isScrolled ? "border-2 rounded-2xl backdrop-blur-lg" : ""}
                 transition-all duration-300 ease-out
                 origin-top
                 ${
