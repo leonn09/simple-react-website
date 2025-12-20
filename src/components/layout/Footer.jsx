@@ -12,7 +12,7 @@ const Footer = ({theme}) => {
                     "
                 >
                     <div className="flex items-center gap-2 font-medium text-xl">
-                        <h3 className="flex items-center"><ReactLogo className="w-9 h-9" />React&nbsp;+&nbsp;<TailwindLogo className="w-9 h-9" />Tailwind CSS</h3>
+                        <h3 className="flex items-center"><ReactLogo className="fill-current w-9 h-9" />React&nbsp;+&nbsp;<TailwindLogo className="w-9 h-9" />Tailwind CSS</h3>
                         
                     </div>
                     <div className="flex items-center gap-2 text-sm">

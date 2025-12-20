@@ -65,7 +65,7 @@ const TopNavBar = () => {
             
                 {/* Left: branding */}
                 <div className="flex items-center gap-1">
-                    <ReactLogo className="w-10 h-10" />
+                    <ReactLogo className="fill-current w-10 h-10" />
                     <h1 className="text-md">
                         <span className="font-light">simple</span>
                         <span className="font-black">React</span>
@@ -127,12 +127,12 @@ const TopNavBar = () => {
         <div
             id="mobile-menu"
             className={`
-                md:hidden fixed top-10 left-1/2 -translate-x-1/2 z-40
+                md:hidden fixed top-10 left-1/2 -translate-x-1/2 z-40 shadow-lg
                 ${isScrolled ? "w-[80%]" : "w-full"}
                 flex flex-col items-center
                 font-bold
-                bg-white/90 dark:bg-black/90
-                ${isScrolled ? "border-2 rounded-2xl backdrop-blur-sm" : ""}
+                bg-white/70 dark:bg-black/70
+                ${isScrolled ? "border-2 rounded-2xl backdrop-blur-md" : ""}
                 transition-all duration-300 ease-out
                 origin-top
                 ${

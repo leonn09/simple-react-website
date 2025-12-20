@@ -101,6 +101,7 @@ const HeroSection = () => {
         w-full min-h-[85vh]
         flex items-center
         px-6
+        shadow-md
         overflow-hidden
       "
       onMouseEnter={() => setIsAutoPlayEnabled(false)}
