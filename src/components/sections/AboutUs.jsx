@@ -6,7 +6,9 @@ const AboutUs = () => {
     <section
       id="about"
       className="
-        relative
+        relative z-20
+        flex items-center justify-center
+        h-60
       "
     >
 
@@ -17,6 +19,8 @@ const AboutUs = () => {
           absolute inset-0
           pointer-events-none
           overflow-hidden
+          dark:bg-zinc-950/50
+          shadow-lg dark:shadow-md dark:shadow-zinc-800
         "
       >
         <ReactLogo className="
@@ -38,7 +42,7 @@ const AboutUs = () => {
           h2 is correct here because this section
           follows the main h1 in the Hero section
         */}
-        <h2 className="text-2xl font-bold">
+        <h2 className="relative text-2xl font-bold">
           About Us
         </h2>
 
@@ -46,26 +50,16 @@ const AboutUs = () => {
           Constrain width for better readability,
           especially on large screens
         */}
-        <p className="max-w-xl opacity-90">
-          This project is built as a clean and accessible React template,
-          focusing on performance, scalability, and modern best practices.
-        </p>
-
-        {/* 
-          Use an anchor instead of a button because
-          this navigates to more content
-        */}
-        <a
-          href="#"
+        <div
           className="
-              inline-block px-6 py-3 rounded-full
-              bg-black text-white
-              dark:bg-white dark:text-black
-              transition hover:opacity-90
+            max-w-xl opacity-90
+            flex
+            overflow-hidden
           "
         >
-          Read More
-        </a>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, asperiores? Accusamus architecto cum accusantium nisi excepturi, repudiandae placeat enim saepe, ex animi fugiat tempora ipsum sed ea rerum, consequatur mollitia!
+        </div>
+
       </div>
     </section>
   );

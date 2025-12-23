@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ReactLogo from "../ui/ReactLogo";
 
-const TopNavBar = () => {
+const TopNavBar = ({ page }) => {
     // Controls mobile menu visibility
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -64,17 +64,17 @@ const TopNavBar = () => {
             <div className="relative h-full flex items-center">
             
                 {/* Left: branding */}
-                <div className="flex items-center gap-1">
+                <a href="#" className="flex items-center gap-1">
                     <ReactLogo className="fill-current w-10 h-10" />
-                    <h1 className="text-md">
+                    <h1 className={`${page !==0 ? "" : "md:hidden lg:block" } text-md`}>
                         <span className="font-light">simple</span>
                         <span className="font-black">React</span>
                         <span className="font-medium">Website</span>
                     </h1>
-                </div>
+                </a>
 
                 {/* Center: desktop navigation (visually centered) */}
-                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-6 font-medium">
+                <div className={`${page !==0 ? "hidden" : "hidden md:flex" } absolute left-1/2 -translate-x-1/2 gap-6 font-medium`}>
                     <a href="#hero" className="hover:opacity-70">Home</a>
                     <a href="#about" className="hover:opacity-70">About</a>
                     <a href="#features" className="hover:opacity-70">Features</a>
@@ -113,7 +113,7 @@ const TopNavBar = () => {
                         aria-expanded={isMenuOpen}
                         aria-controls="mobile-menu"
                         aria-label="Open navigation menu"
-                        className="md:hidden flex flex-col justify-center gap-1.5"
+                        className={`${page !==0 ? "hidden" : "md:hidden" } flex flex-col justify-center gap-1.5`}
                     >
                         <div className="w-7 h-0.5 bg-black dark:bg-white" />
                         <div className="w-7 h-0.5 bg-black dark:bg-white" />
@@ -127,7 +127,8 @@ const TopNavBar = () => {
         <div
             id="mobile-menu"
             className={`
-                md:hidden fixed top-10 left-1/2 -translate-x-1/2 z-40 shadow-lg
+                ${page !==0 ? "hidden" : "md:hidden" }
+                fixed top-10 left-1/2 -translate-x-1/2 z-40 shadow-lg
                 ${isScrolled ? "w-[80%]" : "w-full"}
                 flex flex-col items-center
                 font-bold
