@@ -9,19 +9,20 @@ const TopNavBar = ({ page }) => {
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
-    // Updates navbar style and auto-closes menu on scroll
     const handleScroll = () => {
-        if (window.scrollY > 50) {
-        setIsScrolled(true);
+        const scrolled = window.scrollY > 50;
+
+        setIsScrolled(scrolled);
+
+        if (scrolled && isMenuOpen) {
         setIsMenuOpen(false);
-        } else {
-        setIsScrolled(false);
         }
     };
 
     window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    return () => window.removeEventListener("scroll", handleScroll);
+    }, [isMenuOpen]);
+
 
     useEffect(() => {
         // Allows closing the mobile menu using the Escape key
@@ -50,16 +51,17 @@ const TopNavBar = ({ page }) => {
     <>
         {/* Fixed navigation bar */}
         <nav
-        className={`
-            fixed top-0 left-1/2 -translate-x-1/2
-            z-50 h-16 px-4 py-4
-            transition-all duration-200
-            ${
-            isScrolled
-                ? "mt-3 w-[95%] border-2 rounded-full bg-white dark:bg-black md:bg-white/50 md:dark:bg-black/50 md:backdrop-blur-lg shadow-xl"
-                : "w-full bg-white dark:bg-black"
-            }
-        `}
+            role="navigation"
+            className={`
+                fixed top-0 left-1/2 -translate-x-1/2
+                z-50 h-16 px-4 py-4
+                transition-all duration-200
+                ${
+                isScrolled
+                    ? "mt-3 w-[95%] border-2 rounded-full bg-white dark:bg-black md:bg-white/50 md:dark:bg-black/50 md:backdrop-blur-lg shadow-xl"
+                    : "w-full bg-white dark:bg-black"
+                }
+            `}
         >
             <div className="relative h-full flex items-center">
             
@@ -77,6 +79,7 @@ const TopNavBar = ({ page }) => {
                 <div className={`${page !==0 ? "hidden" : "hidden md:flex" } absolute left-1/2 -translate-x-1/2 gap-6 font-medium`}>
                     <a href="#hero" className="hover:opacity-70">Home</a>
                     <a href="#about" className="hover:opacity-70">About</a>
+                    <a href="#sample" className="hover:opacity-70">Components</a>
                     <a href="#features" className="hover:opacity-70">Features</a>
                     <a href="#footer" className="hover:opacity-70">Contact</a>
                 </div>
@@ -138,13 +141,14 @@ const TopNavBar = ({ page }) => {
                 origin-top
                 ${
                 isMenuOpen
-                    ? "opacity-100 pt-10 pb-2 ointer-events-auto"
+                    ? "opacity-100 pt-10 pb-2 pointer-events-auto"
                     : "opacity-0 pt-0 pb-0 pointer-events-none"
                 }
             `}
         >
             <a onClick={() => setIsMenuOpen(false)} href="#hero" className="py-2">Home</a>
             <a onClick={() => setIsMenuOpen(false)} href="#about" className="py-2">About</a>
+            <a onClick={() => setIsMenuOpen(false)} href="#sample" className="py-2">Components</a>
             <a onClick={() => setIsMenuOpen(false)} href="#features" className="py-2">Features</a>
             <a onClick={() => setIsMenuOpen(false)} href="#footer" className="py-2">Contact</a>
         </div>

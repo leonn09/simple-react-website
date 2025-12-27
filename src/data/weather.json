@@ -1,46 +1,45 @@
 {
   "coord": {
-    "lon": 120.831,
-    "lat": 14.3877
+    "lon": 120.9,
+    "lat": 14.6
   },
   "weather": [
     {
-      "id": 804,
+      "id": 801,
       "main": "Clouds",
-      "description": "overcast clouds",
-      "icon": "04d"
+      "description": "few clouds",
+      "icon": "02n"
     }
   ],
   "base": "stations",
   "main": {
-    "temp": 300.42,
-    "feels_like": 303.39,
-    "temp_min": 300.42,
-    "temp_max": 301.01,
-    "pressure": 1009,
+    "temp": 27.88,
+    "feels_like": 31.66,
+    "temp_min": 26.76,
+    "temp_max": 28.06,
+    "pressure": 1012,
     "humidity": 79,
-    "sea_level": 1009,
-    "grnd_level": 1002
+    "sea_level": 1012,
+    "grnd_level": 1017
   },
   "visibility": 10000,
   "wind": {
-    "speed": 6.92,
-    "deg": 56,
-    "gust": 9.48
+    "speed": 2.06,
+    "deg": 170
   },
   "clouds": {
-    "all": 99
+    "all": 20
   },
-  "dt": 1766394446,
+  "dt": 1766840560,
   "sys": {
     "type": 2,
-    "id": 2037715,
+    "id": 2008256,
     "country": "PH",
-    "sunrise": 1766355413,
-    "sunset": 1766395998
+    "sunrise": 1766787556,
+    "sunset": 1766828110
   },
   "timezone": 28800,
-  "id": 1711955,
-  "name": "Halayhay",
+  "id": 1692872,
+  "name": "Port Area",
   "cod": 200
 }
