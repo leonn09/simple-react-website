@@ -40,7 +40,7 @@ This project consolidates multiple exercises from the **SpaceBourne ALHS Develop
   System-aware theme toggle with saved user preference
 
 - **Weather Dashboard**  
-  Live weather data fetched via API using async/await
+  Weather data from json
 
 ### ⏳ Planned / Optional Enhancements
 - Image Gallery with Modal View
